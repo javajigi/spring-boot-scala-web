@@ -6,5 +6,5 @@ import org.springframework.context.annotation.ComponentScan
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan
+@ComponentScan(basePackages = Array("mvctest", "support"))
 class SampleConfig
