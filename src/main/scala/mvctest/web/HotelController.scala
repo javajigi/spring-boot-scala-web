@@ -11,11 +11,13 @@ import mvctest.domain.Hotel
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.RequestMethod
 import javax.validation.Valid
+import support.web.LoginUser
+import mvctest.domain.User
+import org.slf4j.LoggerFactory
 
 @Controller
 @RequestMapping(Array("/hotels"))
 class HotelController @Autowired() (private val hotelRepository: HotelRepository) {
-
   @RequestMapping(method = Array(RequestMethod.GET))
   def list(model: Model) = {
     val hotels = hotelRepository.findAll()
@@ -30,7 +32,9 @@ class HotelController @Autowired() (private val hotelRepository: HotelRepository
   }
 
   @RequestMapping(method = Array(RequestMethod.GET), params = Array("form"))
-  def createForm(model: Model) = {
+  def createForm(@LoginUser loginUser: User, model: Model) = {
+    println("login user : " + loginUser)
+    
     model.addAttribute("hotel", new Hotel())
     "hotels/create"
   }

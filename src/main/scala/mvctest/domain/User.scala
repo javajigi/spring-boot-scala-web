@@ -6,6 +6,18 @@ import java.lang.Long
 import javax.persistence.Entity
 import scala.beans.BeanProperty
 
+object User {
+  def guestUser = {
+    new GuestUser
+  }
+  
+  class GuestUser extends User {
+    override def isGuest = {
+      true
+    }
+  }
+}
+
 @Entity
 class User {
   @Id 
@@ -18,4 +30,12 @@ class User {
   
   @BeanProperty
   var password: String = _
+  
+  def isGuest = {
+    false
+  }
+  
+  override def toString = {
+    username + " | " + password + " | " + isGuest
+  }
 }
