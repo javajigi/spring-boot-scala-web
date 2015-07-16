@@ -12,7 +12,7 @@ object User {
   }
   
   class GuestUser extends User {
-    override def isGuest = {
+    override def isGuest(): Boolean = {
       true
     }
   }
@@ -31,7 +31,7 @@ class User {
   @BeanProperty
   var password: String = _
   
-  def isGuest = {
+  def isGuest(): Boolean = {
     false
   }
   
