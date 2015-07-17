@@ -31,6 +31,4 @@ class LoginUserHandlerMethodArgumentResolver
 
     loginUser;
   }
-  
-  def this() = this(null)
 }

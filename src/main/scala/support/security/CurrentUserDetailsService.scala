@@ -1,15 +1,17 @@
 package support.security
 
-import org.springframework.security.core.userdetails.UserDetailsService
-import mvctest.domain.User
+import javax.annotation.Resource
+
 import org.springframework.stereotype.Service
-import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.core.userdetails.UserDetailsService
+
+import mvctest.domain.User
 import mvctest.service.UserRepository
 
 @Service("userDetailsService")
 class CurrentUserDetailsService extends UserDetailsService {
-  @Autowired
-  var userRepository: UserRepository = _
+  @Resource(name="userRepository")
+  private var userRepository: UserRepository = _
   
   def loadUserByUsername(username: String) = {
     val user = userRepository.findByUsername(username)

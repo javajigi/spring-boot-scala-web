@@ -10,12 +10,15 @@ import org.springframework.context.annotation.Bean
 
 @Configuration
 class MvcConfig extends WebMvcConfigurerAdapter {
+  @Resource(name="sessionService")
+  private var sessionService: SessionService = _
+  
   override def addArgumentResolvers(argumentResolvers: java.util.List[HandlerMethodArgumentResolver]) {
     argumentResolvers.add(loginUserHandlerMethodArgumentResolver())
   }
   
   @Bean
   def loginUserHandlerMethodArgumentResolver() = {
-    new LoginUserHandlerMethodArgumentResolver()
+    new LoginUserHandlerMethodArgumentResolver(sessionService)
   }
 }
