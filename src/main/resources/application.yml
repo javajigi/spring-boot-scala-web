@@ -3,6 +3,7 @@ spring:
 ---
 spring:
   profiles: default
+  basic.enabled: false
   thymeleaf.cache: false
   jpa.hibernate.ddl-auto: create-drop
 spring.datasource:

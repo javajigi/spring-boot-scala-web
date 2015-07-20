@@ -20,6 +20,10 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   override def configure(http: HttpSecurity) {
     http
       .authorizeRequests()
+          .antMatchers("/favicon.ico").permitAll()
+    
+    http
+      .authorizeRequests()
           .antMatchers("/hotels").authenticated()
           .anyRequest().permitAll()
           .and()
