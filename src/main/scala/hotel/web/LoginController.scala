@@ -1,10 +1,11 @@
-package mvctest.web
+package hotel.web
 
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import mvctest.domain.Authentication
+
+import hotel.domain.Authentication
 
 @Controller
 class LoginController {

@@ -5,8 +5,8 @@ import javax.annotation.Resource
 import org.springframework.stereotype.Service
 import org.springframework.security.core.userdetails.UserDetailsService
 
-import mvctest.domain.User
-import mvctest.service.UserRepository
+import hotel.domain.User
+import hotel.domain.UserRepository
 
 @Service("userDetailsService")
 class CurrentUserDetailsService extends UserDetailsService {

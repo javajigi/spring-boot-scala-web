@@ -8,7 +8,7 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver
 import org.springframework.web.method.support.ModelAndViewContainer
 import support.security.SessionService
 
-import mvctest.domain.User
+import hotel.domain.User
 
 import org.springframework.beans.factory.annotation.Autowired
 

@@ -1,7 +1,8 @@
 package support.security
 
-import mvctest.domain.User
-import mvctest.service.UserRepository
+import hotel.domain.User
+import hotel.domain.UserRepository
+
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.context.SecurityContextHolder

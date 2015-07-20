@@ -1,8 +1,10 @@
-package mvctest.service
+package hotel.domain
 
 import java.lang.Long
-import mvctest.domain.User
+
 import org.springframework.data.repository.CrudRepository
+
+import hotel.domain.User._
 
 trait UserRepository extends CrudRepository[User, Long] {
   def findByUsername(username: String): User

@@ -1,4 +1,4 @@
-package mvctest.domain
+package hotel.domain
 
 import javax.persistence.Id
 import javax.persistence.GeneratedValue

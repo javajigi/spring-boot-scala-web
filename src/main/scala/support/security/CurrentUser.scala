@@ -1,6 +1,6 @@
 package support.security
 
-import mvctest.domain.User
+import hotel.domain.User
 import org.springframework.security.core.authority.AuthorityUtils
 
 class CurrentUser(user: User) 

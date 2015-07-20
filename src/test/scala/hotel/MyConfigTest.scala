@@ -1,16 +1,17 @@
-package mvctest
+package hotel
 
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.SpringApplicationConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
-import mvctest.service.HotelRepository
-import mvctest.domain.Hotel
+
+import hotel.domain.HotelRepository
+import hotel.domain.Hotel
 
 @RunWith(classOf[SpringJUnit4ClassRunner])
-@SpringApplicationConfiguration(classes = Array(classOf[SampleConfig]))
-class SampleConfigTest {
+@SpringApplicationConfiguration(classes = Array(classOf[MyConfig]))
+class MyConfigTest {
   @Autowired
   var hotelRepository: HotelRepository = _
   
