@@ -18,7 +18,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   var uds: UserDetailsService = _
   
   override def configure(http: HttpSecurity) {
-    // http.csrf().disable()
+    http.csrf().disable()
 
     http
       .authorizeRequests()

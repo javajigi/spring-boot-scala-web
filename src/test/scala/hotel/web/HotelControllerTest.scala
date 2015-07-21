@@ -2,15 +2,13 @@ package hotel.web
 
 import hotel.MyConfig
 import hotel.domain.{User, UserRepository}
-import org.hamcrest.CoreMatchers._
-import org.junit.Assert._
-import org.junit.{Before, Test}
 import org.junit.runner.RunWith
+import org.junit.{Before, Test}
 import org.springframework.beans.factory.annotation.{Autowired, Value}
 import org.springframework.boot.test.{IntegrationTest, SpringApplicationConfiguration, TestRestTemplate}
-import org.springframework.http.HttpStatus
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.web.WebAppConfiguration
+import org.springframework.util.LinkedMultiValueMap
 
 @RunWith(classOf[SpringJUnit4ClassRunner])
 @SpringApplicationConfiguration(classes = Array(classOf[MyConfig]))
@@ -27,21 +25,18 @@ class HotelControllerTest {
 
   @Before
   def setup() {
-    val user = new User()
-    user.setUsername("user1")
-    user.setPassword("pass")
-    userRepository.save(user)
-    println("saved user : " + user)
+    val form = new LinkedMultiValueMap[String, String]();
+    form.add("username", "user1");
+    form.add("password", "password");
 
-//    val uriVariables = Map("username" -> user.getUsername, "password" -> user.getPassword)
-//    val response = restTemplate.postForEntity("http://localhost:" + port + "/login", null, classOf[String], uriVariables)
-//    println("body : " + response.getBody)
+    val response = restTemplate.postForLocation("http://localhost:" + port + "/login", form)
+    println(response)
   }
 
   @Test
   def testGetHotels() {
-    val response = restTemplate.getForEntity("http://localhost:" + port + "/hotels", classOf[String])
-    assertThat(response.getStatusCode, is(HttpStatus.OK))
-    println(response.getBody)
+//    val response = restTemplate.getForEntity("http://localhost:" + port + "/hotels", classOf[String])
+//    assertThat(response.getStatusCode, is(HttpStatus.OK))
+//    println(response.getBody)
   }
 }
