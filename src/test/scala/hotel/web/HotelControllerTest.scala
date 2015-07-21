@@ -28,8 +28,8 @@ class HotelControllerTest {
   @Before
   def setup() {
     val user = new User()
-    user.setUsername("username")
-    user.setPassword("password")
+    user.setUsername("user1")
+    user.setPassword("pass")
     userRepository.save(user)
     println("saved user : " + user)
 
