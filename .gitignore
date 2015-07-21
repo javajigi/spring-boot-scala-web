@@ -1,3 +1,7 @@
+*.iml
+*.ipr
+*.iws
+out/
 target/
 .settings/
 .springBeans
@@ -8,3 +12,4 @@ bin/
 .gradle
 .idea
 build/
+gradle/
