@@ -15,6 +15,6 @@ class CurrentUserDetailsService extends UserDetailsService {
   
   def loadUserByUsername(username: String) = {
     val user = userRepository.findByUsername(username)
-    new LoginUserDetails(user)
+    if (user == null) new LoginUserDetails(User.guestUser) else new LoginUserDetails(user)
   }
 }

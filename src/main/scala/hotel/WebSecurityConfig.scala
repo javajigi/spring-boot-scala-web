@@ -18,13 +18,15 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   var uds: UserDetailsService = _
   
   override def configure(http: HttpSecurity) {
+    // http.csrf().disable()
+
     http
       .authorizeRequests()
           .antMatchers("/favicon.ico").permitAll()
     
     http
       .authorizeRequests()
-          .antMatchers("/hotels").authenticated()
+          //.antMatchers("/hotels").authenticated()
           .anyRequest().permitAll()
           .and()
       .formLogin()

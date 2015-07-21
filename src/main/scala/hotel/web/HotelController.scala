@@ -1,27 +1,21 @@
 package hotel.web
 
-import org.springframework.security.web.bind.annotation.AuthenticationPrincipal
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.stereotype.Controller
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.ui.Model
 import java.lang.Long
-import org.springframework.web.bind.annotation.PathVariable
-
-import hotel.domain.HotelRepository
-import hotel.domain.Hotel
-import hotel.domain.User
-
-import org.springframework.validation.BindingResult
-import org.springframework.web.bind.annotation.RequestMethod
 import javax.validation.Valid
+
+import hotel.domain.{Hotel, HotelRepository}
+
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.web.bind.annotation.AuthenticationPrincipal
+import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
+import org.springframework.validation.BindingResult
+import org.springframework.web.bind.annotation.{PathVariable, RequestMapping, RequestMethod}
 import support.security.LoginUserDetails
-import support.web.LoginUser
-import org.slf4j.LoggerFactory
 
 @Controller
 @RequestMapping(Array("/hotels"))
-class HotelController @Autowired() (private val hotelRepository: HotelRepository) {
+class HotelController @Autowired()(private val hotelRepository: HotelRepository) {
   @RequestMapping(method = Array(RequestMethod.GET))
   def list(model: Model) = {
     val hotels = hotelRepository.findAll()
@@ -38,7 +32,7 @@ class HotelController @Autowired() (private val hotelRepository: HotelRepository
   @RequestMapping(method = Array(RequestMethod.GET), params = Array("form"))
   def createForm(@AuthenticationPrincipal loginUser: LoginUserDetails, model: Model) = {
     println("login user : " + loginUser.getUser)
-    
+
     model.addAttribute("hotel", new Hotel())
     "hotels/create"
   }
