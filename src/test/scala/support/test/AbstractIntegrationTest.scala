@@ -11,7 +11,7 @@ import org.springframework.test.context.web.WebAppConfiguration
 @SpringApplicationConfiguration(classes = Array(classOf[MyConfig]))
 @WebAppConfiguration
 @IntegrationTest(Array("server.port:0"))
-class AbstractIntegrationTest {
+trait AbstractIntegrationTest {
   @Value("${local.server.port}")
   var port: Int = _
 

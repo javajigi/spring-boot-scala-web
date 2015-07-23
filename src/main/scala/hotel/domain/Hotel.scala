@@ -31,4 +31,6 @@ class Hotel(identity: Long, n: String, a: String, z: String) {
   var zip: String = z
   
   def this() = this(null, null, null, null)
+
+  override def toString = s"Hotel($id, $name, $address, $zip)"
 }
