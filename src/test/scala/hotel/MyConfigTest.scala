@@ -1,5 +1,6 @@
 package hotel
 
+import com.typesafe.scalalogging.LazyLogging
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,7 +12,7 @@ import hotel.domain.Hotel
 
 @RunWith(classOf[SpringJUnit4ClassRunner])
 @SpringApplicationConfiguration(classes = Array(classOf[MyConfig]))
-class MyConfigTest {
+class MyConfigTest extends LazyLogging {
   @Autowired
   var hotelRepository: HotelRepository = _
   
@@ -20,6 +21,6 @@ class MyConfigTest {
     val hotel = Hotel("hotel name", "hotel address", "215830")
     hotelRepository.save(hotel)
     val persisted = hotelRepository.findOne(hotel.getId)
-    println(persisted)
+    logger.debug(s"persisted : $persisted")
   }
 }

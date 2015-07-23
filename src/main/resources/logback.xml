@@ -10,10 +10,10 @@
 		</encoder>
 	</appender>
 
+	<logger name="hotel" level="DEBUG" />
+
 	<root level="INFO">
 		<appender-ref ref="CONSOLE" />
 	</root>
-	
-	<!-- logger name="org.springframework" level="DEBUG"/ -->
 	
 </configuration>
