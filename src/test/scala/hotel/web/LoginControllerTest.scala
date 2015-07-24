@@ -13,6 +13,7 @@ import org.springframework.test.context.web.WebAppConfiguration
 import org.springframework.util.LinkedMultiValueMap
 import support.test.AbstractIntegrationTest
 
+@RunWith(classOf[SpringJUnit4ClassRunner])
 class LoginControllerTest extends AbstractIntegrationTest {
   val restTemplate = new TestRestTemplate
 

@@ -7,11 +7,10 @@ import org.springframework.boot.test.{IntegrationTest, SpringApplicationConfigur
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.web.WebAppConfiguration
 
-@RunWith(classOf[SpringJUnit4ClassRunner])
 @SpringApplicationConfiguration(classes = Array(classOf[MyConfig]))
 @WebAppConfiguration
 @IntegrationTest(Array("server.port:0"))
-trait AbstractIntegrationTest {
+class AbstractIntegrationTest {
   @Value("${local.server.port}")
   var port: Int = _
 
